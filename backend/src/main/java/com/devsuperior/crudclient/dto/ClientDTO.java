@@ -1,6 +1,7 @@
 package com.devsuperior.crudclient.dto;
 
 import java.io.Serializable;
+import java.time.Instant;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,15 +18,18 @@ public class ClientDTO implements Serializable {
 	private String name;
 	private String cpf;
 	private Double income;
+	
+	private Instant birthDate;
 
 	public ClientDTO() {
 	}
 
-	public ClientDTO(Long id, String name, String cpf, Double income) {
+	public ClientDTO(Long id, String name, String cpf, Double income, Instant birthDate) {
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.income = income;
+		this.birthDate = birthDate;
 	}
 
 	public ClientDTO(Client entity) {
@@ -33,6 +37,7 @@ public class ClientDTO implements Serializable {
 		this.name = entity.getName();
 		this.cpf = entity.getCpf();
 		this.income = entity.getIncome();
+		this.birthDate = entity.getBirthDate();
 	}
 
 	public Long getId() {
@@ -66,5 +71,15 @@ public class ClientDTO implements Serializable {
 	public void setIncome(Double income) {
 		this.income = income;
 	}
+
+	public Instant getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Instant birthDate) {
+		this.birthDate = birthDate;
+	}
+	
+	
 
 }
